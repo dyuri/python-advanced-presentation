@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.7: http://docutils.sourceforge.net/" />
+<meta name="version" content="S5 1.1" />
+<title>Advanced Python</title>
+<meta name="author" content="Gyuri Horak" />
+<meta name="date" content="2011-05-27" />
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 6253 2010-03-02 00:24:53Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: left }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<script src="ui/default/slides.js" type="text/javascript"></script>
+<link rel="stylesheet" href="ui/default/slides.css"
+      type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/default/outline.css"
+      type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/default/print.css"
+      type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/default/opera.css"
+      type="text/css" media="projection" id="operaFix" />
+
+<style type="text/css">
+#currentSlide {display: none;}
+</style>
+</head>
+<body>
+<div class="layout">
+<div id="controls"></div>
+<div id="currentSlide"></div>
+<div id="header">
+
+</div>
+<div id="footer">
+<h1>Advanced Python</h1>
+<h2>© Gyuri, euedge.com</h2>
+</div>
+</div>
+<div class="presentation">
+<div class="slide" id="slide0">
+<h1 class="title">Advanced Python</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Author:</th>
+<td>Gyuri Horak</td></tr>
+<tr><th class="docinfo-name">Date:</th>
+<td>2011-05-27</td></tr>
+</tbody>
+</table>
+<!-- Definitions of interpreted text roles (classes) for S5/HTML data. -->
+<!-- This data file has been placed in the public domain. -->
+<!-- Colours
+======= -->
+<!-- Text Sizes
+========== -->
+<!-- Display in Slides (Presentation Mode) Only
+========================================== -->
+<!-- Display in Outline Mode Only
+============================ -->
+<!-- Display in Print Only
+===================== -->
+<!-- Display in Handout Mode Only
+============================ -->
+<!-- Incremental Display
+=================== -->
+<!-- container: handout
+
+Advanced Python presentation -->
+
+</div>
+<div class="slide" id="diamond-inheritance-problem">
+<h1>Diamond inheritance problem</h1>
+<p><tt class="docutils literal">Cls.__mro__</tt> - method resolution order</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>(<span style="color: #008000">object</span>): <span style="color: #008000; font-weight: bold">pass</span>
+py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">B</span>(A): <span style="color: #008000; font-weight: bold">pass</span>
+py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">C</span>(A): <span style="color: #008000; font-weight: bold">pass</span>
+py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">D</span>(B,C): <span style="color: #008000; font-weight: bold">pass</span>
+py<span style="color: #666666">&gt;</span> D<span style="color: #666666">.</span>__mro__
+(<span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>D<span style="color: #BA2121">&#39;&gt;,</span>
+ <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>B<span style="color: #BA2121">&#39;&gt;,</span>
+ <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>C<span style="color: #BA2121">&#39;&gt;,</span>
+ <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>A<span style="color: #BA2121">&#39;&gt;,</span>
+ <span style="color: #666666">&lt;</span><span style="color: #008000">type</span> <span style="color: #BA2121">&#39;object&#39;</span><span style="color: #666666">&gt;</span>)
+</pre></div>
+</div>
+<div class="slide" id="mixins">
+<h1>Mixins</h1>
+<p>You can add baseclasses runtime</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>(<span style="color: #008000">object</span>): <span style="color: #008000; font-weight: bold">pass</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">B</span>(<span style="color: #008000">object</span>): <span style="color: #008000; font-weight: bold">pass</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">C</span>(A): <span style="color: #008000; font-weight: bold">pass</span>
+
+py<span style="color: #666666">&gt;</span> C<span style="color: #666666">.</span>__bases__ <span style="color: #666666">+=</span> (B,)
+py<span style="color: #666666">&gt;</span> C<span style="color: #666666">.</span>__mro__
+(<span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>C<span style="color: #BA2121">&#39;&gt;, &lt;class &#39;</span>__main__<span style="color: #666666">.</span>A<span style="color: #BA2121">&#39;&gt;,</span>
+ <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>B<span style="color: #BA2121">&#39;&gt;, &lt;type &#39;</span><span style="color: #008000">object</span><span style="color: #BA2121">&#39;&gt;)</span>
+</pre></div>
+</div>
+<div class="slide" id="variable-scope">
+<h1>Variable scope</h1>
+<ul class="simple">
+<li>No declaration, just use any variable whenever you want</li>
+<li>There's <tt class="docutils literal">global</tt> but ...</li>
+<li>Namespaces are dicts</li>
+<li><tt class="docutils literal">module.submodule.variable = 42</tt></li>
+<li><tt class="docutils literal">del</tt> keyword</li>
+<li><tt class="docutils literal">__builtins__</tt>, <tt class="docutils literal">locals()</tt></li>
+</ul>
+</div>
+<div class="slide" id="id1">
+<h1>Variable scope</h1>
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">scopetest</span>(mut, imut):
+  <span style="color: #008000; font-weight: bold">global</span> gvar
+  gvar <span style="color: #666666">=</span> <span style="color: #666666">11</span>
+  lvar <span style="color: #666666">=</span> <span style="color: #666666">12</span>
+  mut <span style="color: #666666">+=</span> [<span style="color: #666666">2</span>]
+  imut <span style="color: #666666">+=</span> <span style="color: #BA2121">&quot;apple&quot;</span>
+  <span style="color: #008000; font-weight: bold">print</span> <span style="color: #008000">locals</span>()
+  <span style="color: #408080; font-style: italic"># {&#39;mut&#39;: [1, 2], &#39;lvar&#39;: 12, &#39;imut&#39;: &#39;pineapple&#39;}</span>
+
+gvar, lvar, amut, aimut <span style="color: #666666">=</span> <span style="color: #666666">1</span>, <span style="color: #666666">1</span>, [<span style="color: #666666">1</span>], <span style="color: #BA2121">&quot;pine&quot;</span>
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #008000">locals</span>()
+<span style="color: #408080; font-style: italic"># {&#39;__builtins__&#39;: &lt;..&gt;, &#39;scopetest&#39;: &lt;function ..&gt;,</span>
+<span style="color: #408080; font-style: italic"># &#39;__file__&#39;: &#39;scope.py&#39;, &#39;amut&#39;: [1], &#39;gvar&#39;: 1,</span>
+<span style="color: #408080; font-style: italic"># &#39;__package__&#39;: None, &#39;lvar&#39;: 1, &#39;aimut&#39;: &#39;pine&#39;,</span>
+<span style="color: #408080; font-style: italic"># &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}</span>
+scopetest(amut, aimut)
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #008000">locals</span>()
+<span style="color: #408080; font-style: italic"># {&#39;__builtins__&#39;: &lt;..&gt;, &#39;scopetest&#39;: &lt;function ..&gt;,</span>
+<span style="color: #408080; font-style: italic"># &#39;__file__&#39;: &#39;scope.py&#39;, &#39;amut&#39;: [1, 2], &#39;gvar&#39;: 11,</span>
+<span style="color: #408080; font-style: italic"># &#39;__package__&#39;: None, &#39;lvar&#39;: 1, &#39;aimut&#39;: &#39;pine&#39;,</span>
+<span style="color: #408080; font-style: italic"># &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}</span>
+</pre></div>
+</div></div>
+<div class="slide" id="iterators">
+<h1>Iterators</h1>
+<ul class="simple">
+<li><tt class="docutils literal">container.__iter__()</tt> -&gt; iterator</li>
+<li><tt class="docutils literal">iterator.__iter__()</tt> -&gt; iterator (self)</li>
+<li><tt class="docutils literal">iterator.next()</tt> -&gt; next item, or StopIteration exception</li>
+</ul>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> [<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>,<span style="color: #666666">5</span>]
+py<span style="color: #666666">&gt;</span> i <span style="color: #666666">=</span> a<span style="color: #666666">.</span>__iter__()
+py<span style="color: #666666">&gt;</span> i<span style="color: #666666">.</span>next()
+<span style="color: #666666">1</span>
+py<span style="color: #666666">&gt;</span> i<span style="color: #666666">.</span>next()
+<span style="color: #666666">2</span>
+</pre></div>
+</div>
+<div class="slide" id="generators-yield">
+<h1>Generators, yield</h1>
+<p>Generate the next item only when we need it</p>
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Fib</span>(<span style="color: #008000">object</span>):
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, limit):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>limit <span style="color: #666666">=</span> limit
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__iter__</span>(<span style="color: #008000">self</span>):
+    p0, p <span style="color: #666666">=</span> <span style="color: #666666">0</span>, <span style="color: #666666">1</span> <span style="color: #408080; font-style: italic"># tuple pack/unpack</span>
+    <span style="color: #008000; font-weight: bold">while</span> p <span style="color: #666666">&lt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>limit:
+      <span style="color: #008000; font-weight: bold">yield</span> p
+      p0, p <span style="color: #666666">=</span> p, p<span style="color: #666666">+</span>p0
+    <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #D2413A; font-weight: bold">StopIteration</span>
+
+py<span style="color: #666666">&gt;</span> f100 <span style="color: #666666">=</span> Fib(<span style="color: #666666">100</span>)
+py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> f100:
+<span style="color: #666666">...</span>   <span style="color: #008000; font-weight: bold">print</span> x,
+<span style="color: #666666">1</span> <span style="color: #666666">1</span> <span style="color: #666666">2</span> <span style="color: #666666">3</span> <span style="color: #666666">5</span> <span style="color: #666666">8</span> <span style="color: #666666">13</span> <span style="color: #666666">21</span> <span style="color: #666666">34</span> <span style="color: #666666">55</span> <span style="color: #666666">89</span>
+</pre></div>
+</div></div>
+<div class="slide" id="list-comprehensions">
+<h1>List comprehensions</h1>
+<p>The <em>functional way</em> of list creation</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> [x<span style="color: #666666">+1</span> <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> f100]
+[<span style="color: #666666">2</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>, <span style="color: #666666">6</span>, <span style="color: #666666">9</span>, <span style="color: #666666">14</span>, <span style="color: #666666">22</span>, <span style="color: #666666">35</span>, <span style="color: #666666">56</span>, <span style="color: #666666">90</span>]
+</pre></div>
+<p class="small">In Python 3 <tt class="docutils literal">dicts</tt> and <tt class="docutils literal">sets</tt> can be created this way as well</p>
+</div>
+<div class="slide" id="itertools">
+<h1>Itertools</h1>
+<p>Useful toolset for iterators</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">itertools</span> <span style="color: #008000; font-weight: bold">import</span> izip
+py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">for</span> x,y <span style="color: #AA22FF; font-weight: bold">in</span> izip(<span style="color: #008000">xrange</span>(<span style="color: #666666">10</span>), f100):
+<span style="color: #666666">...</span>   <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;(</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">, </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">)&quot;</span> <span style="color: #666666">%</span> (x, y),
+(<span style="color: #666666">0</span>, <span style="color: #666666">1</span>) (<span style="color: #666666">1</span>, <span style="color: #666666">1</span>) (<span style="color: #666666">2</span>, <span style="color: #666666">2</span>) (<span style="color: #666666">3</span>, <span style="color: #666666">3</span>) (<span style="color: #666666">4</span>, <span style="color: #666666">5</span>) (<span style="color: #666666">5</span>, <span style="color: #666666">8</span>) \
+(<span style="color: #666666">6</span>, <span style="color: #666666">13</span>) (<span style="color: #666666">7</span>, <span style="color: #666666">21</span>) (<span style="color: #666666">8</span>, <span style="color: #666666">34</span>) (<span style="color: #666666">9</span>, <span style="color: #666666">55</span>)
+</pre></div>
+</div>
+<div class="slide" id="coroutines-pep-342">
+<h1>Coroutines (PEP-342)</h1>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">grep</span>(pattern):
+  <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;Looking for </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> pattern
+  <span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000">True</span>:
+    line <span style="color: #666666">=</span> (<span style="color: #008000; font-weight: bold">yield</span>)
+    <span style="color: #008000; font-weight: bold">if</span> pattern <span style="color: #AA22FF; font-weight: bold">in</span> line:
+      <span style="color: #008000; font-weight: bold">print</span> line
+
+py<span style="color: #666666">&gt;</span> g <span style="color: #666666">=</span> grep(<span style="color: #BA2121">&quot;python&quot;</span>)
+py<span style="color: #666666">&gt;</span> g<span style="color: #666666">.</span>next()
+py<span style="color: #666666">&gt;</span> g<span style="color: #666666">.</span>send(<span style="color: #BA2121">&quot;No snakes here.&quot;</span>)
+py<span style="color: #666666">&gt;</span> g<span style="color: #666666">.</span>send(<span style="color: #BA2121">&quot;Generators in python ROCK!&quot;</span>)
+Generators <span style="color: #AA22FF; font-weight: bold">in</span> python ROCK<span style="border: 1px solid #FF0000">!</span>
+py<span style="color: #666666">&gt;</span> g<span style="color: #666666">.</span>close()
+</pre></div>
+</div>
+<div class="slide" id="operator-overloading">
+<h1>Operator overloading</h1>
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Fun</span>(<span style="color: #008000">object</span>):
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, function):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>function <span style="color: #666666">=</span> function
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__call__</span>(<span style="color: #008000">self</span>, <span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>function(<span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs)
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__add__</span>(<span style="color: #008000">self</span>, funinst):
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">inner</span>(<span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs):
+      <span style="color: #008000; font-weight: bold">return</span> funinst(<span style="color: #008000">self</span><span style="color: #666666">.</span>function(<span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs))
+    <span style="color: #008000; font-weight: bold">return</span> Fun(inner)
+
+py<span style="color: #666666">&gt;</span> f1 <span style="color: #666666">=</span> Fun(a)
+py<span style="color: #666666">&gt;</span> f1(<span style="color: #666666">1</span>,<span style="color: #666666">2</span>) <span style="color: #408080; font-style: italic"># 3</span>
+py<span style="color: #666666">&gt;</span> f2 <span style="color: #666666">=</span> Fun(<span style="color: #008000; font-weight: bold">lambda</span> x: x<span style="color: #666666">*</span>x)
+py<span style="color: #666666">&gt;</span> f2(<span style="color: #666666">2</span>) <span style="color: #408080; font-style: italic"># 4</span>
+py<span style="color: #666666">&gt;</span> f3 <span style="color: #666666">=</span> f1<span style="color: #666666">+</span>f2
+py<span style="color: #666666">&gt;</span> f3(<span style="color: #666666">1</span>,<span style="color: #666666">2</span>) <span style="color: #408080; font-style: italic"># 9</span>
+</pre></div>
+</div></div>
+<div class="slide" id="getattr">
+<h1>__getattr__</h1>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">JSObj</span>(<span style="color: #008000">dict</span>):
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getattr__</span>(<span style="color: #008000">self</span>, attr):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>get(attr)
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__setattr__</span>(<span style="color: #008000">self</span>, attr, value):
+    <span style="color: #008000">self</span>[attr] <span style="color: #666666">=</span> value
+
+py<span style="color: #666666">&gt;</span> o <span style="color: #666666">=</span> JSObj({<span style="color: #BA2121">&#39;a&#39;</span>: <span style="color: #666666">10</span>, <span style="color: #BA2121">&#39;b&#39;</span>: <span style="color: #666666">20</span>})
+py<span style="color: #666666">&gt;</span> o<span style="color: #666666">.</span>a <span style="color: #408080; font-style: italic"># 10</span>
+py<span style="color: #666666">&gt;</span> o<span style="color: #666666">.</span>c <span style="color: #408080; font-style: italic"># None</span>
+py<span style="color: #666666">&gt;</span> o<span style="color: #666666">.</span>c <span style="color: #666666">=</span> <span style="color: #666666">30</span>
+py<span style="color: #666666">&gt;</span> o[<span style="color: #BA2121">&#39;c&#39;</span>] <span style="color: #408080; font-style: italic"># 30</span>
+py<span style="color: #666666">&gt;</span> o<span style="color: #666666">.</span>c <span style="color: #408080; font-style: italic"># 30</span>
+</pre></div>
+</div>
+<div class="slide" id="dict">
+<h1>__dict__</h1>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Borg</span>(<span style="color: #008000">object</span>):
+  __shared_state <span style="color: #666666">=</span> {}
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>__dict__ <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>__shared_state
+
+py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> Borg()
+py<span style="color: #666666">&gt;</span> b <span style="color: #666666">=</span> Borg()
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>x <span style="color: #666666">=</span> <span style="color: #666666">42</span>
+py<span style="color: #666666">&gt;</span> b<span style="color: #666666">.</span>x
+<span style="color: #666666">42</span>
+py<span style="color: #666666">&gt;</span> a <span style="color: #666666">==</span> b
+<span style="color: #008000">False</span>
+</pre></div>
+<p><a class="reference external" href="http://docs.python.org/reference/datamodel.html#special-method-names">http://docs.python.org/reference/datamodel.html#special-method-names</a></p>
+</div>
+<div class="slide" id="nothing-is-private-again">
+<h1>Nothing is private (again)</h1>
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hide</span>(o):
+  <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Proxy</span>(<span style="color: #008000">object</span>):
+    __slots__ <span style="color: #666666">=</span> ()
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getattr__</span>(<span style="color: #008000">self</span>, name):
+      <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">getattr</span>(o, name)
+  <span style="color: #008000; font-weight: bold">return</span> Proxy()
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>(<span style="color: #008000">object</span>):
+  a <span style="color: #666666">=</span> <span style="color: #666666">42</span>
+
+py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> hide(A())
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>a
+<span style="color: #666666">42</span>
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>a <span style="color: #666666">=</span> <span style="color: #666666">43</span>
+<span style="color: #D2413A; font-weight: bold">AttributeError</span>: <span style="color: #BA2121">&#39;Proxy&#39;</span> <span style="color: #008000">object</span> has no attribute <span style="color: #BA2121">&#39;a&#39;</span>
+</pre></div>
+</div><pre class="incremental small literal-block">
+py&gt; a.__getattr__.func_closure[0].cell_contents
+&lt;__main__.A object at 0x7faae6e16510&gt;
+</pre>
+</div>
+<div class="slide" id="decorators">
+<h1>Decorators</h1>
+<ul class="simple">
+<li>syntactic sugar</li>
+<li>class decorators in Python 3</li>
+<li><tt class="docutils literal">functool.wraps</tt> helper - sets <tt class="docutils literal">__name__</tt>, docstring, etc.</li>
+<li><tt class="docutils literal">&#64;classmethod</tt>, <tt class="docutils literal">&#64;staticmethod</tt></li>
+</ul>
+<div class="incremental"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">funct</span>(): <span style="color: #008000; font-weight: bold">pass</span>
+funct <span style="color: #666666">=</span> decorator(funct)
+</pre></div>
+</div><div class="incremental"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #AA22FF">@decorator</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">funct</span>(): <span style="color: #008000; font-weight: bold">pass</span>
+</pre></div>
+</div></div>
+<div class="slide" id="example-decorator">
+<h1>Example decorator</h1>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">logger</span>(f):
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">inner</span>(<span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs):
+    <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> called with arguments: </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">; </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (f<span style="color: #666666">.</span>__name__, args, kwargs)
+    retval <span style="color: #666666">=</span> f(<span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs)
+    <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> returned: </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (f<span style="color: #666666">.</span>__name__, retval)
+    <span style="color: #008000; font-weight: bold">return</span> retval
+  <span style="color: #008000; font-weight: bold">return</span> inner
+
+<span style="color: #AA22FF">@logger</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">mul</span>(a,b):
+  <span style="color: #008000; font-weight: bold">return</span> a<span style="color: #666666">*</span>b
+
+py<span style="color: #666666">&gt;</span> mul(<span style="color: #666666">1</span>,<span style="color: #666666">2</span>)
+mul called <span style="color: #008000; font-weight: bold">with</span> arguments: (<span style="color: #666666">1</span>, <span style="color: #666666">2</span>); {}
+mul returned: <span style="color: #666666">2</span>
+</pre></div>
+</div>
+<div class="slide" id="descriptors">
+<h1>Descriptors</h1>
+<ul class="simple">
+<li>to &quot;hide&quot; getter/setter methods<ul>
+<li><tt class="docutils literal">__get__(self, instance, owner)</tt></li>
+<li><tt class="docutils literal">__set__(self, instance, value)</tt></li>
+<li><tt class="docutils literal">__delete__(self, instance)</tt></li>
+</ul>
+</li>
+<li>functions are descriptors (with <tt class="docutils literal">__get__</tt>), late binding is possible</li>
+</ul>
+</div>
+<div class="slide" id="properties">
+<h1>Properties</h1>
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">PropEx</span>(<span style="color: #008000">object</span>):
+
+  __a <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+  __b <span style="color: #666666">=</span> <span style="color: #666666">2</span>
+
+  <span style="color: #AA22FF">@property</span>
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">c</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>__a <span style="color: #666666">+</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>__b
+
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">getA</span>(<span style="color: #008000">self</span>): <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>__a
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">setA</span>(<span style="color: #008000">self</span>, value): <span style="color: #008000">self</span><span style="color: #666666">.</span>__a <span style="color: #666666">=</span> value
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">delA</span>(<span style="color: #008000">self</span>): <span style="color: #008000">self</span><span style="color: #666666">.</span>__a <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+
+  a <span style="color: #666666">=</span> <span style="color: #008000">property</span>(getA, setA, delA)
+  <span style="color: #408080; font-style: italic"># @property, @m.setter, @m.deleter</span>
+
+py<span style="color: #666666">&gt;</span> x <span style="color: #666666">=</span> PropEx()
+py<span style="color: #666666">&gt;</span> x<span style="color: #666666">.</span>a <span style="color: #666666">=</span> <span style="color: #666666">12</span>
+py<span style="color: #666666">&gt;</span> x<span style="color: #666666">.</span>c
+<span style="color: #666666">14</span>
+py<span style="color: #666666">&gt;</span> x<span style="color: #666666">.</span>__class__<span style="color: #666666">.</span>__dict__[<span style="color: #BA2121">&#39;a&#39;</span>]<span style="color: #666666">.</span>fset
+<span style="color: #666666">&lt;</span>function setA at <span style="color: #666666">0x7ff241c266e0&gt;</span>
+</pre></div>
+</div></div>
+<div class="slide" id="functions-methods">
+<h1>Functions/methods</h1>
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">myclass</span>(<span style="color: #008000">self</span>):
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>__class__
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>(<span style="color: #008000">object</span>):
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">method</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000; font-weight: bold">pass</span>
+
+py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> A(); a<span style="color: #666666">.</span>__class__<span style="color: #666666">.</span>__dict__[<span style="color: #BA2121">&#39;method&#39;</span>]
+<span style="color: #666666">&lt;</span>function method at <span style="color: #666666">0x7ff241c26cf8&gt;</span>
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>__class__<span style="color: #666666">.</span>method
+<span style="color: #666666">&lt;</span>unbound method A<span style="color: #666666">.</span>method<span style="color: #666666">&gt;</span>
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>method
+<span style="color: #666666">&lt;</span>bound method A<span style="color: #666666">.</span>method of <span style="color: #666666">&lt;</span>__main__<span style="color: #666666">.</span>A <span style="color: #008000">object</span> at <span style="color: #666666">0x7ff242d56bd0&gt;&gt;</span>
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myclass <span style="color: #666666">=</span> myclass; a<span style="color: #666666">.</span>myclass()
+<span style="color: #D2413A; font-weight: bold">TypeError</span>: myclass() takes exactly <span style="color: #666666">1</span> argument (<span style="color: #666666">0</span> given) <span style="color: #408080; font-style: italic"># ???</span>
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myclass
+<span style="color: #666666">&lt;</span>function myclass at <span style="color: #666666">0x7ff241c26b18&gt;</span> <span style="color: #408080; font-style: italic"># :(</span>
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myclass <span style="color: #666666">=</span> myclass<span style="color: #666666">.</span>__get__(a, A); a<span style="color: #666666">.</span>myclass()
+<span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>A<span style="color: #BA2121">&#39;&gt;</span>
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myclass
+<span style="color: #666666">&lt;</span>bound method A<span style="color: #666666">.</span>myclass of <span style="color: #666666">&lt;</span>__main__<span style="color: #666666">.</span>A <span style="color: #008000">object</span> at <span style="color: #666666">0x7ff242d56bd0&gt;&gt;</span> <span style="color: #408080; font-style: italic"># :)</span>
+</pre></div>
+</div></div>
+<div class="slide" id="type">
+<h1>type()</h1>
+<ul class="incremental simple">
+<li>function: returns the type of the argument</li>
+<li>but it's a type too</li>
+<li>moreover it's the root of all classes</li>
+</ul>
+<div class="incremental"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> <span style="color: #008000">type</span>(<span style="color: #008000">object</span>)
+<span style="color: #666666">&lt;</span><span style="color: #008000">type</span> <span style="color: #BA2121">&#39;type&#39;</span><span style="color: #666666">&gt;</span>
+py<span style="color: #666666">&gt;</span> <span style="color: #008000">type</span>(<span style="color: #008000">type</span>)
+<span style="color: #666666">&lt;</span><span style="color: #008000">type</span> <span style="color: #BA2121">&#39;type&#39;</span><span style="color: #666666">&gt;</span>
+</pre></div>
+</div><ul class="incremental simple">
+<li>AND it can create new classes runtime</li>
+</ul>
+</div>
+<div class="slide" id="metaprogramming">
+<h1>metaprogramming</h1>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">constr</span>(<span style="color: #008000">self</span>):
+  <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;new instance created&quot;</span>
+  <span style="color: #008000">self</span><span style="color: #666666">.</span>foo <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;foo&quot;</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">method</span>(<span style="color: #008000">self</span>):
+  <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;foo: &quot;</span> <span style="color: #666666">+</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>foo
+
+py<span style="color: #666666">&gt;</span> MyClass <span style="color: #666666">=</span> <span style="color: #008000">type</span>(<span style="color: #BA2121">&quot;MyClass&quot;</span>,      <span style="color: #408080; font-style: italic"># classname</span>
+                   (<span style="color: #008000">dict</span>, <span style="color: #008000">object</span>), <span style="color: #408080; font-style: italic"># baseclasses</span>
+                   {<span style="color: #BA2121">&#39;PI&#39;</span>: <span style="color: #666666">3.14</span>,    <span style="color: #408080; font-style: italic"># __dict__</span>
+                    <span style="color: #BA2121">&#39;method&#39;</span>: method,
+                    <span style="color: #BA2121">&#39;__init__&#39;</span>: constr})
+py<span style="color: #666666">&gt;</span> myinstance <span style="color: #666666">=</span> MyClass()
+new instance created
+py<span style="color: #666666">&gt;</span> myinstance<span style="color: #666666">.</span>method()
+foo: foo
+</pre></div>
+</div>
+<div class="slide" id="metaclass">
+<h1>__metaclass__</h1>
+<p>When defined, it is called instead of <tt class="docutils literal">type</tt> at class generation</p>
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">mymeta</span>(<span style="color: #008000">type</span>):
+  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__new__</span>(mcs, name, bases, <span style="color: #008000">dict</span>):
+    <span style="color: #008000">dict</span>[<span style="color: #BA2121">&#39;myprop&#39;</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;metaclass property&#39;</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">type</span><span style="color: #666666">.</span>__new__(mcs, name, bases, <span style="color: #008000">dict</span>)
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>(<span style="color: #008000">object</span>):
+  __metaclass__ <span style="color: #666666">=</span> mymeta
+
+py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> A()
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myprop
+<span style="color: #BA2121">&#39;metaclass property&#39;</span>
+</pre></div>
+</div><p class="incremental">You can do _anything_ here, like type checking based on docstrings (or py3 annotations), decorating all the methods, create mixins ...</p>
+</div>
+<div class="slide" id="questions">
+<h1>Questions?</h1>
+</div>
+<div class="slide" id="thanks">
+<h1>Thanks!</h1>
+</div>
+</div>
+</body>
+</html>

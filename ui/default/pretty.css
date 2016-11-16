@@ -1,0 +1,108 @@
+/* Following are the presentation styles -- edit away! */
+
+body {background: #777 -16px 0 no-repeat; color: #ccc; font-size: 2.1em; text-shadow: 0 1px 1px #444;}
+:link, :visited {text-decoration: none; color: #ffc757;}
+#controls :active {color: #fc0 !important;}
+#controls :focus {outline: 1px dotted #fc0;}
+h1, h2, h3, h4 {font-size: 100%; margin: 0; padding: 0; font-weight: inherit;}
+ul, pre {margin: 0; line-height: 1em;}
+html, body {margin: 0; padding: 0;}
+
+blockquote, q {font-style: italic;}
+blockquote {padding: 0 2em 0.5em; margin: 0 1.5em 0.5em; text-align: center; font-size: 1em;}
+blockquote p {margin: 0;}
+blockquote i {font-style: normal;}
+blockquote b {display: block; margin-top: 0.5em; font-weight: normal; font-size: smaller; font-style: normal;}
+blockquote b i {font-style: italic;}
+
+kbd {font-weight: bold; font-size: 1em;}
+sup {font-size: smaller; line-height: 1px;}
+
+.slide code {padding: 2px 0.25em; font-weight: bold;  background: #888; color: #fc0; font-size:90%;}
+.slide code.bad, code del {color: red;}
+.slide code.old {color: silver;}
+.slide pre {padding: .5em; margin: 0.25em 0 0.5em 0em; background: #888; color: #fc0; font-size: 90%;}
+.slide pre code {display: block;}
+.slide ul {margin-left: 5%; margin-right: 7%; list-style: square;}
+.slide li {margin-top: 0.75em; margin-right: 0;}
+.slide ul ul {line-height: 1;}
+.slide ul ul li {margin: .2em; font-size: 85%; list-style: disc;}
+.slide img.leader {display: block; margin: 0 auto;}
+
+.slide.current h1 {
+  text-shadow: 25px 35px 10px #222;
+  -webkit-transition: all 2s ease-in;
+  -moz-transition: all 2s ease-in;
+  transition: all 2s ease-in;
+}
+
+div#header, div#footer {background: #555; color: #eee;
+  font-family: Georgia, "Times New Roman", serif;}
+
+div#footer {font-size: 0.5em; font-weight: bold; padding: 1em 0;}
+#footer h1, #footer h2 {display: block; padding: 0 1em;}
+#footer h2 {font-style: italic;}
+
+div.long {font-size: 0.75em;}
+.slide h1 {position: absolute; top: 0.7em; left: 87px; z-index: 1;
+  margin: 0; padding: 0.1em 0.5em; white-space: nowrap;
+  font: bold 150%/1em Georgia, "Times New Roman", serif; 
+  color: #fc0; background: transparent;}
+.slide h3 {font-size: 130%;}
+h1 abbr {font-variant: small-caps;}
+
+div#controls {position: absolute; left: 50%; bottom: 0;
+  width: 50%;
+  text-align: right; font: bold 0.9em Verdana, Helvetica, sans-serif;}
+html>body div#controls {position: fixed; padding: 0 0 1em 0;
+  top: auto;}
+div#controls form {position: absolute; bottom: 0; right: 0; width: 100%;
+  margin: 0; padding: 0;}
+#controls #navLinks a {padding: 0; margin: 0 0.5em; 
+  background: transparent; border: none; color: #fc0; 
+  cursor: pointer;}
+#controls #navList {height: 1em;}
+#controls #navList #jumplist {position: absolute; bottom: 0; right: 0; background: #DDD; color: #da0;}
+
+#currentSlide {text-align: center; font-size: 0.5em; color: #fff;}
+
+#slide0 {padding-top: 3.5em; font-size: 90%;}
+#slide0 h1 {position: static; margin: 1em 0 0; padding: 0;
+   font: bold 2em Georgia, 'Times New Roman', serif; white-space: normal;
+   color: #fc0; background: transparent;}
+#slide0 h2 {font: bold italic 1em Helvetica, sans-serif; margin: 0.25em;}
+#slide0 h3 {margin-top: 1.5em; font-size: 1.5em;}
+#slide0 h4 {margin-top: 0; font-size: 1em;}
+
+ul.urls {list-style: none; display: inline; margin: 0;}
+.urls li {display: inline; margin: 0;}
+.note {display: none;}
+.external {border-bottom: 1px dotted gray;}
+html>body .external {border-bottom: none;}
+.external:after {content: " \274F"; font-size: smaller; color: #77B;}
+
+.incremental, .incremental *, .incremental *:after {color: #808080; visibility: visible;text-shadow: none;}
+img.incremental {visibility: hidden;}
+.slide .current {color: #fff;}
+
+.slide .thanks h2 {font-size: 1.5em; margin-top: 2em; padding:0;}
+.slide .thanks h3 {font-size: 1.5em; margin-bottom: 2em; padding:0;color:#fc0}
+.slide .thanks .subject {font-style:italic;}
+
+.slide .small,
+.slide pre.small { font-size: .7em; }
+.slide .incremental pre, .slide .incremental pre span, .slide pre.incremental { background-color: #797979; color: #807c7a !important;}
+.slide pre.current { color: #fd2;}
+.slide .highlight pre { font-size: .8em;}
+.slide .small .highlight pre { font-size: .75em;}
+
+tt.literal {
+  font-family: monospace;
+  background-color: #666;
+  color: #ddd;
+}
+
+/* diagnostics
+
+li:after {content: " [" attr(class) "]"; color: #F88;}
+ */
