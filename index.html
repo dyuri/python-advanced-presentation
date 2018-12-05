@@ -442,9 +442,9 @@ scopetest(amut, aimut)
 <div class="slide" id="iterators">
 <h1>Iterators</h1>
 <ul class="simple">
-<li><tt class="docutils literal">container.__iter__()</tt> -&gt; iterator</li>
-<li><tt class="docutils literal">iterator.__iter__()</tt> -&gt; iterator (self)</li>
-<li><tt class="docutils literal">iterator.next()</tt> -&gt; next item, or StopIteration exception</li>
+<li><tt class="docutils literal">iter(container)</tt> -&gt; iterator [__iter__]</li>
+<li><tt class="docutils literal">iter(iterator)</tt> -&gt; iterator (self) [__iter__]</li>
+<li><tt class="docutils literal">next(iterator)</tt> -&gt; next item, or StopIteration exception [__next__]</li>
 </ul>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> [<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>,<span style="color: #666666">5</span>]
 py<span style="color: #666666">&gt;</span> i <span style="color: #666666">=</span> a<span style="color: #666666">.</span>__iter__()
@@ -469,7 +469,7 @@ py<span style="color: #666666">&gt;</span> i<span style="color: #666666">.</span
 
 py<span style="color: #666666">&gt;</span> f100 <span style="color: #666666">=</span> Fib(<span style="color: #666666">100</span>)
 py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> f100:
-<span style="color: #666666">...</span>   <span style="color: #008000; font-weight: bold">print</span> x,
+<span style="color: #666666">...</span>   <span style="color: #008000; font-weight: bold">print</span>(x)
 <span style="color: #666666">1</span> <span style="color: #666666">1</span> <span style="color: #666666">2</span> <span style="color: #666666">3</span> <span style="color: #666666">5</span> <span style="color: #666666">8</span> <span style="color: #666666">13</span> <span style="color: #666666">21</span> <span style="color: #666666">34</span> <span style="color: #666666">55</span> <span style="color: #666666">89</span>
 </pre></div>
 </div></div>
@@ -483,25 +483,26 @@ py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-wei
 </div>
 <div class="slide" id="itertools">
 <h1>Itertools</h1>
-<p>Useful toolset for iterators</p>
+<p>Useful toolset for iterators (permutations, combinations, chain, ...)</p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">itertools</span> <span style="color: #008000; font-weight: bold">import</span> izip
 py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">for</span> x,y <span style="color: #AA22FF; font-weight: bold">in</span> izip(<span style="color: #008000">xrange</span>(<span style="color: #666666">10</span>), f100):
 <span style="color: #666666">...</span>   <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;(</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">, </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">)&quot;</span> <span style="color: #666666">%</span> (x, y),
 (<span style="color: #666666">0</span>, <span style="color: #666666">1</span>) (<span style="color: #666666">1</span>, <span style="color: #666666">1</span>) (<span style="color: #666666">2</span>, <span style="color: #666666">2</span>) (<span style="color: #666666">3</span>, <span style="color: #666666">3</span>) (<span style="color: #666666">4</span>, <span style="color: #666666">5</span>) (<span style="color: #666666">5</span>, <span style="color: #666666">8</span>) \
 (<span style="color: #666666">6</span>, <span style="color: #666666">13</span>) (<span style="color: #666666">7</span>, <span style="color: #666666">21</span>) (<span style="color: #666666">8</span>, <span style="color: #666666">34</span>) (<span style="color: #666666">9</span>, <span style="color: #666666">55</span>)
 </pre></div>
+<p><b>Note:</b> <tt class="docutils literal">zip</tt> has been moved into the builtin namespace ... (in Python 3)</p>
 </div>
 <div class="slide" id="coroutines-pep-342">
 <h1>Coroutines (PEP-342)</h1>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">grep</span>(pattern):
-  <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;Looking for </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> pattern
+  <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;Looking for </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> pattern)
   <span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000">True</span>:
     line <span style="color: #666666">=</span> (<span style="color: #008000; font-weight: bold">yield</span>)
     <span style="color: #008000; font-weight: bold">if</span> pattern <span style="color: #AA22FF; font-weight: bold">in</span> line:
-      <span style="color: #008000; font-weight: bold">print</span> line
+      <span style="color: #008000; font-weight: bold">print</span>(line)
 
 py<span style="color: #666666">&gt;</span> g <span style="color: #666666">=</span> grep(<span style="color: #BA2121">&quot;python&quot;</span>)
-py<span style="color: #666666">&gt;</span> g<span style="color: #666666">.</span>next()
+py<span style="color: #666666">&gt;</span> next(g)
 py<span style="color: #666666">&gt;</span> g<span style="color: #666666">.</span>send(<span style="color: #BA2121">&quot;No snakes here.&quot;</span>)
 py<span style="color: #666666">&gt;</span> g<span style="color: #666666">.</span>send(<span style="color: #BA2121">&quot;Generators in python ROCK!&quot;</span>)
 Generators <span style="color: #AA22FF; font-weight: bold">in</span> python ROCK<span style="border: 1px solid #FF0000">!</span>
@@ -603,9 +604,9 @@ funct <span style="color: #666666">=</span> decorator(funct)
 <h1>Example decorator</h1>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">logger</span>(f):
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">inner</span>(<span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs):
-    <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> called with arguments: </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">; </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (f<span style="color: #666666">.</span>__name__, args, kwargs)
+    <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> called with arguments: </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">; </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (f<span style="color: #666666">.</span>__name__, args, kwargs))
     retval <span style="color: #666666">=</span> f(<span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs)
-    <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> returned: </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (f<span style="color: #666666">.</span>__name__, retval)
+    <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> returned: </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (f<span style="color: #666666">.</span>__name__, retval))
     <span style="color: #008000; font-weight: bold">return</span> retval
   <span style="color: #008000; font-weight: bold">return</span> inner
 
@@ -700,11 +701,11 @@ py<span style="color: #666666">&gt;</span> <span style="color: #008000">type</sp
 <div class="slide" id="metaprogramming">
 <h1>metaprogramming</h1>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">constr</span>(<span style="color: #008000">self</span>):
-  <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;new instance created&quot;</span>
+  <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;new instance created&quot;</span>)
   <span style="color: #008000">self</span><span style="color: #666666">.</span>foo <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;foo&quot;</span>
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">method</span>(<span style="color: #008000">self</span>):
-  <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;foo: &quot;</span> <span style="color: #666666">+</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>foo
+  <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;foo: &quot;</span> <span style="color: #666666">+</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>foo)
 
 py<span style="color: #666666">&gt;</span> MyClass <span style="color: #666666">=</span> <span style="color: #008000">type</span>(<span style="color: #BA2121">&quot;MyClass&quot;</span>,      <span style="color: #408080; font-style: italic"># classname</span>
                    (<span style="color: #008000">dict</span>, <span style="color: #008000">object</span>), <span style="color: #408080; font-style: italic"># baseclasses</span>
@@ -733,6 +734,8 @@ py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span
 <span style="color: #BA2121">&#39;metaclass property&#39;</span>
 </pre></div>
 </div><p class="incremental">You can do _anything_ here, like type checking based on docstrings (or py3 annotations), decorating all the methods, create mixins ...</p>
+<p class="incremental">Python3: <tt class="docutils literal">class A(object, metaclass=mymeta)</tt>
+</p>
 </div>
 <div class="slide" id="questions">
 <h1>Questions?</h1>
