@@ -338,7 +338,7 @@ ul.auto-toc {
 </div>
 <div id="footer">
 <h1>Advanced Python</h1>
-<h2>© Gyuri, euedge.com</h2>
+<h2>© Gyuri, 𝙲 𝙾 𝙳 𝙴 &amp; Ⓢ Ⓞ Ⓓ Ⓐ</h2>
 </div>
 </div>
 <div class="presentation">
@@ -378,13 +378,13 @@ Advanced Python presentation -->
 <div class="slide" id="diamond-inheritance-problem">
 <h1>Diamond inheritance problem</h1>
 <p><tt class="docutils literal">Cls.__mro__</tt> - method resolution order</p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>(<span style="color: #008000">object</span>): <span style="color: #008000; font-weight: bold">pass</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>: <span style="color: #008000; font-weight: bold">pass</span>
 py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">B</span>(A): <span style="color: #008000; font-weight: bold">pass</span>
 py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">C</span>(A): <span style="color: #008000; font-weight: bold">pass</span>
 py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">D</span>(B,C): <span style="color: #008000; font-weight: bold">pass</span>
-py<span style="color: #666666">&gt;</span> D<span style="color: #666666">.</span>__mro__
+py<span style="color: #666666">&gt;</span> D<span style="color: #666666">.</span><span style="color: #19177C">__mro__</span>
 (<span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>D<span style="color: #BA2121">&#39;&gt;,</span>
- <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>B<span style="color: #BA2121">&#39;&gt;,</span>
+ <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span><span style="color: #BA2121">B&#39;&gt;,</span>
  <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>C<span style="color: #BA2121">&#39;&gt;,</span>
  <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>A<span style="color: #BA2121">&#39;&gt;,</span>
  <span style="color: #666666">&lt;</span><span style="color: #008000">type</span> <span style="color: #BA2121">&#39;object&#39;</span><span style="color: #666666">&gt;</span>)
@@ -393,46 +393,46 @@ py<span style="color: #666666">&gt;</span> D<span style="color: #666666">.</span
 <div class="slide" id="mixins">
 <h1>Mixins</h1>
 <p>You can add baseclasses runtime</p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>(<span style="color: #008000">object</span>): <span style="color: #008000; font-weight: bold">pass</span>
-<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">B</span>(<span style="color: #008000">object</span>): <span style="color: #008000; font-weight: bold">pass</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>: <span style="color: #008000; font-weight: bold">pass</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">B</span>: <span style="color: #008000; font-weight: bold">pass</span>
 <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">C</span>(A): <span style="color: #008000; font-weight: bold">pass</span>
 
-py<span style="color: #666666">&gt;</span> C<span style="color: #666666">.</span>__bases__ <span style="color: #666666">+=</span> (B,)
-py<span style="color: #666666">&gt;</span> C<span style="color: #666666">.</span>__mro__
+py<span style="color: #666666">&gt;</span> C<span style="color: #666666">.</span><span style="color: #19177C">__bases__</span> <span style="color: #666666">+=</span> (B,)
+py<span style="color: #666666">&gt;</span> C<span style="color: #666666">.</span><span style="color: #19177C">__mro__</span>
 (<span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>C<span style="color: #BA2121">&#39;&gt;, &lt;class &#39;</span>__main__<span style="color: #666666">.</span>A<span style="color: #BA2121">&#39;&gt;,</span>
- <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>B<span style="color: #BA2121">&#39;&gt;, &lt;type &#39;</span><span style="color: #008000">object</span><span style="color: #BA2121">&#39;&gt;)</span>
+ <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span><span style="color: #BA2121">B&#39;&gt;, &lt;type &#39;</span><span style="color: #008000">object</span><span style="color: #BA2121">&#39;&gt;)</span>
 </pre></div>
 </div>
 <div class="slide" id="variable-scope">
 <h1>Variable scope</h1>
 <ul class="simple">
 <li>No declaration, just use any variable whenever you want</li>
-<li>There's <tt class="docutils literal">global</tt> but ...</li>
-<li>Namespaces are dicts</li>
+<li>There's <tt class="docutils literal">global</tt> but <strong>AVOID USING IT</strong></li>
+<li>Namespaces are basically dicts</li>
 <li><tt class="docutils literal">module.submodule.variable = 42</tt></li>
 <li><tt class="docutils literal">del</tt> keyword</li>
-<li><tt class="docutils literal">__builtins__</tt>, <tt class="docutils literal">locals()</tt></li>
+<li><tt class="docutils literal">__builtins__</tt>, <tt class="docutils literal">locals()</tt>, <tt class="docutils literal">dir()</tt></li>
 </ul>
 </div>
 <div class="slide" id="id1">
 <h1>Variable scope</h1>
-<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">scopetest</span>(mut, imut):
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">scopetest</span>(mut, imut):
   <span style="color: #008000; font-weight: bold">global</span> gvar
   gvar <span style="color: #666666">=</span> <span style="color: #666666">11</span>
   lvar <span style="color: #666666">=</span> <span style="color: #666666">12</span>
   mut <span style="color: #666666">+=</span> [<span style="color: #666666">2</span>]
   imut <span style="color: #666666">+=</span> <span style="color: #BA2121">&quot;apple&quot;</span>
-  <span style="color: #008000; font-weight: bold">print</span> <span style="color: #008000">locals</span>()
+  <span style="color: #008000">print</span>(<span style="color: #008000">locals</span>())
   <span style="color: #408080; font-style: italic"># {&#39;mut&#39;: [1, 2], &#39;lvar&#39;: 12, &#39;imut&#39;: &#39;pineapple&#39;}</span>
 
 gvar, lvar, amut, aimut <span style="color: #666666">=</span> <span style="color: #666666">1</span>, <span style="color: #666666">1</span>, [<span style="color: #666666">1</span>], <span style="color: #BA2121">&quot;pine&quot;</span>
-<span style="color: #008000; font-weight: bold">print</span> <span style="color: #008000">locals</span>()
+<span style="color: #008000">print</span>(<span style="color: #008000">locals</span>())
 <span style="color: #408080; font-style: italic"># {&#39;__builtins__&#39;: &lt;..&gt;, &#39;scopetest&#39;: &lt;function ..&gt;,</span>
 <span style="color: #408080; font-style: italic"># &#39;__file__&#39;: &#39;scope.py&#39;, &#39;amut&#39;: [1], &#39;gvar&#39;: 1,</span>
 <span style="color: #408080; font-style: italic"># &#39;__package__&#39;: None, &#39;lvar&#39;: 1, &#39;aimut&#39;: &#39;pine&#39;,</span>
 <span style="color: #408080; font-style: italic"># &#39;__name__&#39;: &#39;__main__&#39;, &#39;__doc__&#39;: None}</span>
 scopetest(amut, aimut)
-<span style="color: #008000; font-weight: bold">print</span> <span style="color: #008000">locals</span>()
+<span style="color: #008000">print</span>(<span style="color: #008000">locals</span>())
 <span style="color: #408080; font-style: italic"># {&#39;__builtins__&#39;: &lt;..&gt;, &#39;scopetest&#39;: &lt;function ..&gt;,</span>
 <span style="color: #408080; font-style: italic"># &#39;__file__&#39;: &#39;scope.py&#39;, &#39;amut&#39;: [1, 2], &#39;gvar&#39;: 11,</span>
 <span style="color: #408080; font-style: italic"># &#39;__package__&#39;: None, &#39;lvar&#39;: 1, &#39;aimut&#39;: &#39;pine&#39;,</span>
@@ -442,22 +442,22 @@ scopetest(amut, aimut)
 <div class="slide" id="iterators">
 <h1>Iterators</h1>
 <ul class="simple">
-<li><tt class="docutils literal">iter(container)</tt> -&gt; iterator [__iter__]</li>
-<li><tt class="docutils literal">iter(iterator)</tt> -&gt; iterator (self) [__iter__]</li>
-<li><tt class="docutils literal">next(iterator)</tt> -&gt; next item, or StopIteration exception [__next__]</li>
+<li><tt class="docutils literal">container.__iter__()</tt> -&gt; iterator</li>
+<li><tt class="docutils literal">iterator.__iter__()</tt> -&gt; iterator (self)</li>
+<li><tt class="docutils literal">iterator.__next__()</tt> -&gt; next item, or StopIteration exception</li>
 </ul>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> [<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>,<span style="color: #666666">5</span>]
-py<span style="color: #666666">&gt;</span> i <span style="color: #666666">=</span> a<span style="color: #666666">.</span>__iter__()
-py<span style="color: #666666">&gt;</span> i<span style="color: #666666">.</span>next()
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> [<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>,<span style="color: #666666">5</span>]
+py<span style="color: #666666">&gt;</span> i <span style="color: #666666">=</span> <span style="color: #008000">iter</span>(a)  <span style="color: #408080; font-style: italic"># a.__iter__()</span>
+py<span style="color: #666666">&gt;</span> <span style="color: #008000">next</span>(i)  <span style="color: #408080; font-style: italic"># i.__next__()</span>
 <span style="color: #666666">1</span>
-py<span style="color: #666666">&gt;</span> i<span style="color: #666666">.</span>next()
+py<span style="color: #666666">&gt;</span> <span style="color: #008000">next</span>(i)
 <span style="color: #666666">2</span>
 </pre></div>
 </div>
 <div class="slide" id="generators-yield">
 <h1>Generators, yield</h1>
 <p>Generate the next item only when we need it</p>
-<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Fib</span>(<span style="color: #008000">object</span>):
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Fib</span>(<span style="color: #008000">object</span>):
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, limit):
     <span style="color: #008000">self</span><span style="color: #666666">.</span>limit <span style="color: #666666">=</span> limit
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__iter__</span>(<span style="color: #008000">self</span>):
@@ -469,40 +469,38 @@ py<span style="color: #666666">&gt;</span> i<span style="color: #666666">.</span
 
 py<span style="color: #666666">&gt;</span> f100 <span style="color: #666666">=</span> Fib(<span style="color: #666666">100</span>)
 py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> f100:
-<span style="color: #666666">...</span>   <span style="color: #008000; font-weight: bold">print</span>(x)
+<span style="color: #666666">...</span>   <span style="color: #008000">print</span>(x, end<span style="color: #666666">=</span><span style="color: #BA2121">&quot;&quot;</span>)
 <span style="color: #666666">1</span> <span style="color: #666666">1</span> <span style="color: #666666">2</span> <span style="color: #666666">3</span> <span style="color: #666666">5</span> <span style="color: #666666">8</span> <span style="color: #666666">13</span> <span style="color: #666666">21</span> <span style="color: #666666">34</span> <span style="color: #666666">55</span> <span style="color: #666666">89</span>
 </pre></div>
 </div></div>
 <div class="slide" id="list-comprehensions">
 <h1>List comprehensions</h1>
 <p>The <em>functional way</em> of list creation</p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> [x<span style="color: #666666">+1</span> <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> f100]
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>py<span style="color: #666666">&gt;</span> [x<span style="color: #666666">+1</span> <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> f100]
 [<span style="color: #666666">2</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>, <span style="color: #666666">6</span>, <span style="color: #666666">9</span>, <span style="color: #666666">14</span>, <span style="color: #666666">22</span>, <span style="color: #666666">35</span>, <span style="color: #666666">56</span>, <span style="color: #666666">90</span>]
 </pre></div>
-<p class="small">In Python 3 <tt class="docutils literal">dicts</tt> and <tt class="docutils literal">sets</tt> can be created this way as well</p>
+<p class="small"><tt class="docutils literal">dicts</tt> and <tt class="docutils literal">sets</tt> can be created this way as well</p>
 </div>
 <div class="slide" id="itertools">
 <h1>Itertools</h1>
-<p>Useful toolset for iterators (permutations, combinations, chain, ...)</p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">itertools</span> <span style="color: #008000; font-weight: bold">import</span> izip
-py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">for</span> x,y <span style="color: #AA22FF; font-weight: bold">in</span> izip(<span style="color: #008000">xrange</span>(<span style="color: #666666">10</span>), f100):
-<span style="color: #666666">...</span>   <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;(</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">, </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">)&quot;</span> <span style="color: #666666">%</span> (x, y),
+<p>Useful toolset for iterators</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>py<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">for</span> x, y <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(<span style="color: #008000">range</span>(<span style="color: #666666">10</span>), f100):
+<span style="color: #666666">...</span>   <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;(</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">, </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">)&quot;</span> <span style="color: #666666">%</span> (x, y), end<span style="color: #666666">=</span><span style="color: #BA2121">&quot; &quot;</span>)
 (<span style="color: #666666">0</span>, <span style="color: #666666">1</span>) (<span style="color: #666666">1</span>, <span style="color: #666666">1</span>) (<span style="color: #666666">2</span>, <span style="color: #666666">2</span>) (<span style="color: #666666">3</span>, <span style="color: #666666">3</span>) (<span style="color: #666666">4</span>, <span style="color: #666666">5</span>) (<span style="color: #666666">5</span>, <span style="color: #666666">8</span>) \
 (<span style="color: #666666">6</span>, <span style="color: #666666">13</span>) (<span style="color: #666666">7</span>, <span style="color: #666666">21</span>) (<span style="color: #666666">8</span>, <span style="color: #666666">34</span>) (<span style="color: #666666">9</span>, <span style="color: #666666">55</span>)
 </pre></div>
-<p><b>Note:</b> <tt class="docutils literal">zip</tt> has been moved into the builtin namespace ... (in Python 3)</p>
 </div>
 <div class="slide" id="coroutines-pep-342">
 <h1>Coroutines (PEP-342)</h1>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">grep</span>(pattern):
-  <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;Looking for </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> pattern)
-  <span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000">True</span>:
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">grep</span>(pattern):
+  <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Looking for </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> pattern)
+  <span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000; font-weight: bold">True</span>:
     line <span style="color: #666666">=</span> (<span style="color: #008000; font-weight: bold">yield</span>)
     <span style="color: #008000; font-weight: bold">if</span> pattern <span style="color: #AA22FF; font-weight: bold">in</span> line:
-      <span style="color: #008000; font-weight: bold">print</span>(line)
+      <span style="color: #008000">print</span>(line)
 
 py<span style="color: #666666">&gt;</span> g <span style="color: #666666">=</span> grep(<span style="color: #BA2121">&quot;python&quot;</span>)
-py<span style="color: #666666">&gt;</span> next(g)
+py<span style="color: #666666">&gt;</span> <span style="color: #008000">next</span>(g)
 py<span style="color: #666666">&gt;</span> g<span style="color: #666666">.</span>send(<span style="color: #BA2121">&quot;No snakes here.&quot;</span>)
 py<span style="color: #666666">&gt;</span> g<span style="color: #666666">.</span>send(<span style="color: #BA2121">&quot;Generators in python ROCK!&quot;</span>)
 Generators <span style="color: #AA22FF; font-weight: bold">in</span> python ROCK<span style="border: 1px solid #FF0000">!</span>
@@ -511,7 +509,8 @@ py<span style="color: #666666">&gt;</span> g<span style="color: #666666">.</span
 </div>
 <div class="slide" id="operator-overloading">
 <h1>Operator overloading</h1>
-<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Fun</span>(<span style="color: #008000">object</span>):
+<p>&quot;Magic methods&quot;</p>
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Fun</span>(<span style="color: #008000">object</span>):
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, function):
     <span style="color: #008000">self</span><span style="color: #666666">.</span>function <span style="color: #666666">=</span> function
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__call__</span>(<span style="color: #008000">self</span>, <span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs):
@@ -531,7 +530,7 @@ py<span style="color: #666666">&gt;</span> f3(<span style="color: #666666">1</sp
 </div></div>
 <div class="slide" id="getattr">
 <h1>__getattr__</h1>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">JSObj</span>(<span style="color: #008000">dict</span>):
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">JSObj</span>(<span style="color: #008000">dict</span>):
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getattr__</span>(<span style="color: #008000">self</span>, attr):
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>get(attr)
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__setattr__</span>(<span style="color: #008000">self</span>, attr, value):
@@ -547,10 +546,10 @@ py<span style="color: #666666">&gt;</span> o<span style="color: #666666">.</span
 </div>
 <div class="slide" id="dict">
 <h1>__dict__</h1>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Borg</span>(<span style="color: #008000">object</span>):
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Borg</span>(<span style="color: #008000">object</span>):
   __shared_state <span style="color: #666666">=</span> {}
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
-    <span style="color: #008000">self</span><span style="color: #666666">.</span>__dict__ <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>__shared_state
+    <span style="color: #008000">self</span><span style="color: #666666">.</span><span style="color: #19177C">__dict__</span> <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>__shared_state
 
 py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> Borg()
 py<span style="color: #666666">&gt;</span> b <span style="color: #666666">=</span> Borg()
@@ -558,15 +557,15 @@ py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span
 py<span style="color: #666666">&gt;</span> b<span style="color: #666666">.</span>x
 <span style="color: #666666">42</span>
 py<span style="color: #666666">&gt;</span> a <span style="color: #666666">==</span> b
-<span style="color: #008000">False</span>
+<span style="color: #008000; font-weight: bold">False</span>
 </pre></div>
 <p><a class="reference external" href="http://docs.python.org/reference/datamodel.html#special-method-names">http://docs.python.org/reference/datamodel.html#special-method-names</a></p>
 </div>
 <div class="slide" id="nothing-is-private-again">
 <h1>Nothing is private (again)</h1>
-<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hide</span>(o):
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hide</span>(o):
   <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Proxy</span>(<span style="color: #008000">object</span>):
-    __slots__ <span style="color: #666666">=</span> ()
+    <span style="color: #19177C">__slots__</span> <span style="color: #666666">=</span> ()
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getattr__</span>(<span style="color: #008000">self</span>, name):
       <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">getattr</span>(o, name)
   <span style="color: #008000; font-weight: bold">return</span> Proxy()
@@ -580,11 +579,13 @@ py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span
 py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>a <span style="color: #666666">=</span> <span style="color: #666666">43</span>
 <span style="color: #D2413A; font-weight: bold">AttributeError</span>: <span style="color: #BA2121">&#39;Proxy&#39;</span> <span style="color: #008000">object</span> has no attribute <span style="color: #BA2121">&#39;a&#39;</span>
 </pre></div>
-</div><pre class="incremental small literal-block">
-py&gt; a.__getattr__.func_closure[0].cell_contents
-&lt;__main__.A object at 0x7faae6e16510&gt;
-</pre>
-</div>
+</div><div class="incremental small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span><span style="color: #0000FF">__getattr__</span><span style="color: #666666">.</span><span style="color: #19177C">__closure__</span>[<span style="color: #666666">0</span>]<span style="color: #666666">.</span>cell_contents
+<span style="color: #666666">&lt;</span>__main__<span style="color: #666666">.</span>A <span style="color: #008000">object</span> at <span style="color: #666666">0x7faae6e16510&gt;</span>
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span><span style="color: #0000FF">__getattr__</span><span style="color: #666666">.</span><span style="color: #19177C">__closure__</span>[<span style="color: #666666">0</span>]<span style="color: #666666">.</span>cell_contents<span style="color: #666666">.</span>a <span style="color: #666666">=</span> <span style="color: #666666">43</span>
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>a
+<span style="color: #666666">43</span>  <span style="color: #408080; font-style: italic"># :( :)</span>
+</pre></div>
+</div></div>
 <div class="slide" id="decorators">
 <h1>Decorators</h1>
 <ul class="simple">
@@ -593,20 +594,20 @@ py&gt; a.__getattr__.func_closure[0].cell_contents
 <li><tt class="docutils literal">functool.wraps</tt> helper - sets <tt class="docutils literal">__name__</tt>, docstring, etc.</li>
 <li><tt class="docutils literal">&#64;classmethod</tt>, <tt class="docutils literal">&#64;staticmethod</tt></li>
 </ul>
-<div class="incremental"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">funct</span>(): <span style="color: #008000; font-weight: bold">pass</span>
+<div class="incremental"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">funct</span>(): <span style="color: #008000; font-weight: bold">pass</span>
 funct <span style="color: #666666">=</span> decorator(funct)
 </pre></div>
-</div><div class="incremental"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #AA22FF">@decorator</span>
+</div><div class="incremental"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #AA22FF">@decorator</span>
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">funct</span>(): <span style="color: #008000; font-weight: bold">pass</span>
 </pre></div>
 </div></div>
 <div class="slide" id="example-decorator">
 <h1>Example decorator</h1>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">logger</span>(f):
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">logger</span>(f):
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">inner</span>(<span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs):
-    <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> called with arguments: </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">; </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (f<span style="color: #666666">.</span>__name__, args, kwargs))
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> called with arguments: </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">; </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (f<span style="color: #666666">.</span><span style="color: #19177C">__name__</span>, args, kwargs))
     retval <span style="color: #666666">=</span> f(<span style="color: #666666">*</span>args, <span style="color: #666666">**</span>kwargs)
-    <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> returned: </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (f<span style="color: #666666">.</span>__name__, retval))
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> returned: </span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">%</span> (f<span style="color: #666666">.</span><span style="color: #19177C">__name__</span>, retval))
     <span style="color: #008000; font-weight: bold">return</span> retval
   <span style="color: #008000; font-weight: bold">return</span> inner
 
@@ -633,7 +634,7 @@ mul returned: <span style="color: #666666">2</span>
 </div>
 <div class="slide" id="properties">
 <h1>Properties</h1>
-<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">PropEx</span>(<span style="color: #008000">object</span>):
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">PropEx</span>(<span style="color: #008000">object</span>):
 
   __a <span style="color: #666666">=</span> <span style="color: #666666">1</span>
   __b <span style="color: #666666">=</span> <span style="color: #666666">2</span>
@@ -653,30 +654,28 @@ py<span style="color: #666666">&gt;</span> x <span style="color: #666666">=</spa
 py<span style="color: #666666">&gt;</span> x<span style="color: #666666">.</span>a <span style="color: #666666">=</span> <span style="color: #666666">12</span>
 py<span style="color: #666666">&gt;</span> x<span style="color: #666666">.</span>c
 <span style="color: #666666">14</span>
-py<span style="color: #666666">&gt;</span> x<span style="color: #666666">.</span>__class__<span style="color: #666666">.</span>__dict__[<span style="color: #BA2121">&#39;a&#39;</span>]<span style="color: #666666">.</span>fset
+py<span style="color: #666666">&gt;</span> x<span style="color: #666666">.</span><span style="color: #19177C">__class__</span><span style="color: #666666">.</span><span style="color: #19177C">__dict__</span>[<span style="color: #BA2121">&#39;a&#39;</span>]<span style="color: #666666">.</span>fset
 <span style="color: #666666">&lt;</span>function setA at <span style="color: #666666">0x7ff241c266e0&gt;</span>
 </pre></div>
 </div></div>
 <div class="slide" id="functions-methods">
 <h1>Functions/methods</h1>
-<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">myclass</span>(<span style="color: #008000">self</span>):
-  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>__class__
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">myclass</span>(<span style="color: #008000">self</span>):
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span><span style="color: #19177C">__class__</span>
 
-<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>(<span style="color: #008000">object</span>):
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>:
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">method</span>(<span style="color: #008000">self</span>):
     <span style="color: #008000; font-weight: bold">pass</span>
 
-py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> A(); a<span style="color: #666666">.</span>__class__<span style="color: #666666">.</span>__dict__[<span style="color: #BA2121">&#39;method&#39;</span>]
-<span style="color: #666666">&lt;</span>function method at <span style="color: #666666">0x7ff241c26cf8&gt;</span>
-py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>__class__<span style="color: #666666">.</span>method
-<span style="color: #666666">&lt;</span>unbound method A<span style="color: #666666">.</span>method<span style="color: #666666">&gt;</span>
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span><span style="color: #19177C">__class__</span><span style="color: #666666">.</span>method
+<span style="color: #666666">&lt;</span>function __main__<span style="color: #666666">.</span>A<span style="color: #666666">.</span>method(<span style="color: #008000">self</span>)<span style="color: #666666">&gt;</span>
 py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>method
 <span style="color: #666666">&lt;</span>bound method A<span style="color: #666666">.</span>method of <span style="color: #666666">&lt;</span>__main__<span style="color: #666666">.</span>A <span style="color: #008000">object</span> at <span style="color: #666666">0x7ff242d56bd0&gt;&gt;</span>
 py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myclass <span style="color: #666666">=</span> myclass; a<span style="color: #666666">.</span>myclass()
 <span style="color: #D2413A; font-weight: bold">TypeError</span>: myclass() takes exactly <span style="color: #666666">1</span> argument (<span style="color: #666666">0</span> given) <span style="color: #408080; font-style: italic"># ???</span>
 py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myclass
 <span style="color: #666666">&lt;</span>function myclass at <span style="color: #666666">0x7ff241c26b18&gt;</span> <span style="color: #408080; font-style: italic"># :(</span>
-py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myclass <span style="color: #666666">=</span> myclass<span style="color: #666666">.</span>__get__(a, A); a<span style="color: #666666">.</span>myclass()
+py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myclass <span style="color: #666666">=</span> myclass<span style="color: #666666">.</span><span style="color: #0000FF">__get__</span>(a, A); a<span style="color: #666666">.</span>myclass()
 <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span> <span style="border: 1px solid #FF0000">&#39;</span><span style="color: #0000FF; font-weight: bold">__main__</span><span style="color: #666666">.</span>A<span style="color: #BA2121">&#39;&gt;</span>
 py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myclass
 <span style="color: #666666">&lt;</span>bound method A<span style="color: #666666">.</span>myclass of <span style="color: #666666">&lt;</span>__main__<span style="color: #666666">.</span>A <span style="color: #008000">object</span> at <span style="color: #666666">0x7ff242d56bd0&gt;&gt;</span> <span style="color: #408080; font-style: italic"># :)</span>
@@ -689,7 +688,7 @@ py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span
 <li>but it's a type too</li>
 <li>moreover it's the root of all classes</li>
 </ul>
-<div class="incremental"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">py<span style="color: #666666">&gt;</span> <span style="color: #008000">type</span>(<span style="color: #008000">object</span>)
+<div class="incremental"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>py<span style="color: #666666">&gt;</span> <span style="color: #008000">type</span>(<span style="color: #008000">object</span>)
 <span style="color: #666666">&lt;</span><span style="color: #008000">type</span> <span style="color: #BA2121">&#39;type&#39;</span><span style="color: #666666">&gt;</span>
 py<span style="color: #666666">&gt;</span> <span style="color: #008000">type</span>(<span style="color: #008000">type</span>)
 <span style="color: #666666">&lt;</span><span style="color: #008000">type</span> <span style="color: #BA2121">&#39;type&#39;</span><span style="color: #666666">&gt;</span>
@@ -700,12 +699,12 @@ py<span style="color: #666666">&gt;</span> <span style="color: #008000">type</sp
 </div>
 <div class="slide" id="metaprogramming">
 <h1>metaprogramming</h1>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">constr</span>(<span style="color: #008000">self</span>):
-  <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;new instance created&quot;</span>)
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">constr</span>(<span style="color: #008000">self</span>):
+  <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;new instance created&quot;</span>)
   <span style="color: #008000">self</span><span style="color: #666666">.</span>foo <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;foo&quot;</span>
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">method</span>(<span style="color: #008000">self</span>):
-  <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;foo: &quot;</span> <span style="color: #666666">+</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>foo)
+  <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;foo: &quot;</span> <span style="color: #666666">+</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>foo)
 
 py<span style="color: #666666">&gt;</span> MyClass <span style="color: #666666">=</span> <span style="color: #008000">type</span>(<span style="color: #BA2121">&quot;MyClass&quot;</span>,      <span style="color: #408080; font-style: italic"># classname</span>
                    (<span style="color: #008000">dict</span>, <span style="color: #008000">object</span>), <span style="color: #408080; font-style: italic"># baseclasses</span>
@@ -721,21 +720,19 @@ foo: foo
 <div class="slide" id="metaclass">
 <h1>__metaclass__</h1>
 <p>When defined, it is called instead of <tt class="docutils literal">type</tt> at class generation</p>
-<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">mymeta</span>(<span style="color: #008000">type</span>):
+<div class="small"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">mymeta</span>(<span style="color: #008000">type</span>):
   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__new__</span>(mcs, name, bases, <span style="color: #008000">dict</span>):
     <span style="color: #008000">dict</span>[<span style="color: #BA2121">&#39;myprop&#39;</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;metaclass property&#39;</span>
-    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">type</span><span style="color: #666666">.</span>__new__(mcs, name, bases, <span style="color: #008000">dict</span>)
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">type</span><span style="color: #666666">.</span><span style="color: #0000FF">__new__</span>(mcs, name, bases, <span style="color: #008000">dict</span>)
 
-<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>(<span style="color: #008000">object</span>):
-  __metaclass__ <span style="color: #666666">=</span> mymeta
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">A</span>(metaclass<span style="color: #666666">=</span>mymeta):
+  <span style="color: #008000; font-weight: bold">pass</span>
 
 py<span style="color: #666666">&gt;</span> a <span style="color: #666666">=</span> A()
 py<span style="color: #666666">&gt;</span> a<span style="color: #666666">.</span>myprop
 <span style="color: #BA2121">&#39;metaclass property&#39;</span>
 </pre></div>
 </div><p class="incremental">You can do _anything_ here, like type checking based on docstrings (or py3 annotations), decorating all the methods, create mixins ...</p>
-<p class="incremental">Python3: <tt class="docutils literal">class A(object, metaclass=mymeta)</tt>
-</p>
 </div>
 <div class="slide" id="questions">
 <h1>Questions?</h1>

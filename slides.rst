@@ -13,7 +13,7 @@ Advanced Python
 
 .. |copy| unicode:: U+00A9
 
-.. footer:: |copy| Gyuri, euedge.com
+.. footer:: |copy| Gyuri, 𝙲 𝙾 𝙳 𝙴 & Ⓢ Ⓞ Ⓓ Ⓐ
 
 Diamond inheritance problem
 ===========================
@@ -22,7 +22,7 @@ Diamond inheritance problem
 
 .. sourcecode:: python
 
-  py> class A(object): pass
+  py> class A: pass
   py> class B(A): pass
   py> class C(A): pass
   py> class D(B,C): pass
@@ -40,8 +40,8 @@ You can add baseclasses runtime
 
 .. sourcecode:: python
 
-  class A(object): pass
-  class B(object): pass
+  class A: pass
+  class B: pass
   class C(A): pass
 
   py> C.__bases__ += (B,)
@@ -53,11 +53,11 @@ Variable scope
 ==============
 
 * No declaration, just use any variable whenever you want
-* There's ``global`` but ...
-* Namespaces are dicts
+* There's ``global`` but **AVOID USING IT**
+* Namespaces are basically dicts
 * ``module.submodule.variable = 42``
 * ``del`` keyword
-* ``__builtins__``, ``locals()``
+* ``__builtins__``, ``locals()``, ``dir()``
 
 Variable scope
 ==============
@@ -72,17 +72,17 @@ Variable scope
       lvar = 12
       mut += [2]
       imut += "apple"
-      print locals()
+      print(locals())
       # {'mut': [1, 2], 'lvar': 12, 'imut': 'pineapple'}
 
     gvar, lvar, amut, aimut = 1, 1, [1], "pine"
-    print locals()
+    print(locals())
     # {'__builtins__': <..>, 'scopetest': <function ..>, 
     # '__file__': 'scope.py', 'amut': [1], 'gvar': 1, 
     # '__package__': None, 'lvar': 1, 'aimut': 'pine', 
     # '__name__': '__main__', '__doc__': None}
     scopetest(amut, aimut) 
-    print locals()
+    print(locals())
     # {'__builtins__': <..>, 'scopetest': <function ..>, 
     # '__file__': 'scope.py', 'amut': [1, 2], 'gvar': 11, 
     # '__package__': None, 'lvar': 1, 'aimut': 'pine', 
@@ -93,15 +93,15 @@ Iterators
 
 - ``container.__iter__()`` -> iterator
 - ``iterator.__iter__()`` -> iterator (self)
-- ``iterator.next()`` -> next item, or StopIteration exception
+- ``iterator.__next__()`` -> next item, or StopIteration exception
 
 .. sourcecode:: python
 
   py> a = [1,2,3,4,5]
-  py> i = a.__iter__()
-  py> i.next()
+  py> i = iter(a)  # a.__iter__()
+  py> next(i)  # i.__next__()
   1
-  py> i.next()
+  py> next(i)
   2
 
 Generators, yield
@@ -125,7 +125,7 @@ Generate the next item only when we need it
 
     py> f100 = Fib(100)
     py> for x in f100: 
-    ...   print x,
+    ...   print(x, end="")
     1 1 2 3 5 8 13 21 34 55 89
 
 List comprehensions
@@ -140,7 +140,7 @@ The *functional way* of list creation
 
 .. class:: small
 
-  In Python 3 ``dicts`` and ``sets`` can be created this way as well
+  ``dicts`` and ``sets`` can be created this way as well
 
 Itertools
 =========
@@ -149,9 +149,8 @@ Useful toolset for iterators
 
 .. sourcecode:: python
 
-  py> from itertools import izip
-  py> for x,y in izip(xrange(10), f100):
-  ...   print "(%s, %s)" % (x, y),
+  py> for x, y in zip(range(10), f100):
+  ...   print("(%s, %s)" % (x, y), end=" ")
   (0, 1) (1, 1) (2, 2) (3, 3) (4, 5) (5, 8) \
   (6, 13) (7, 21) (8, 34) (9, 55)
 
@@ -161,14 +160,14 @@ Coroutines (PEP-342)
 .. sourcecode:: python
 
   def grep(pattern):
-    print "Looking for %s" % pattern
+    print("Looking for %s" % pattern)
     while True:
       line = (yield)
       if pattern in line:
-        print line
+        print(line)
 
   py> g = grep("python")
-  py> g.next()
+  py> next(g)
   py> g.send("No snakes here.")
   py> g.send("Generators in python ROCK!")
   Generators in python ROCK!
@@ -176,6 +175,8 @@ Coroutines (PEP-342)
 
 Operator overloading
 ====================
+
+"Magic methods"
 
 .. class:: small
 
@@ -261,10 +262,13 @@ Nothing is private (again)
 
 .. class:: incremental small
 
-  ::
+  .. sourcecode:: python
 
-    py> a.__getattr__.func_closure[0].cell_contents
+    py> a.__getattr__.__closure__[0].cell_contents
     <__main__.A object at 0x7faae6e16510>
+    py> a.__getattr__.__closure__[0].cell_contents.a = 43
+    py> a.a
+    43  # :( :)
 
 Decorators
 ==========
@@ -293,9 +297,9 @@ Example decorator
   
   def logger(f):
     def inner(*args, **kwargs):
-      print "%s called with arguments: %s; %s" % (f.__name__, args, kwargs)
+      print("%s called with arguments: %s; %s" % (f.__name__, args, kwargs))
       retval = f(*args, **kwargs)
-      print "%s returned: %s" % (f.__name__, retval)
+      print("%s returned: %s" % (f.__name__, retval))
       return retval
     return inner
 
@@ -358,14 +362,12 @@ Functions/methods
     def myclass(self):
       return self.__class__
 
-    class A(object):
+    class A:
       def method(self):
         pass
 
-    py> a = A(); a.__class__.__dict__['method']
-    <function method at 0x7ff241c26cf8>
     py> a.__class__.method
-    <unbound method A.method>
+    <function __main__.A.method(self)>
     py> a.method
     <bound method A.method of <__main__.A object at 0x7ff242d56bd0>>
     py> a.myclass = myclass; a.myclass()
@@ -401,11 +403,11 @@ metaprogramming
 .. sourcecode:: python
 
   def constr(self):
-    print "new instance created"
+    print("new instance created")
     self.foo = "foo"
 
   def method(self):
-    print "foo: " + self.foo
+    print("foo: " + self.foo)
 
   py> MyClass = type("MyClass",      # classname
                      (dict, object), # baseclasses
@@ -431,8 +433,8 @@ When defined, it is called instead of ``type`` at class generation
         dict['myprop'] = 'metaclass property'
         return type.__new__(mcs, name, bases, dict)
 
-    class A(object):
-      __metaclass__ = mymeta
+    class A(metaclass=mymeta):
+      pass
 
     py> a = A()
     py> a.myprop
